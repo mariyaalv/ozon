@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Реализация Progress Bar" />
+    <link rel="icon" type="image/x-icon" href="https://st.ozone.ru/assets/favicon.ico">
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="components/ProgressBar/ProgressBar.css" />
+    <link rel="stylesheet" href="components/Input/Input.css" />
+    <link rel="stylesheet" href="components/Switch/Switch.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <h1>Progress</h1>
+      <button class="themeToggle" id="theme-toggle" aria-label="Сменить тему">
+        <img
+          id="theme-icon"
+          src="assets/theme-dark.svg"
+          alt="Иконка темы"
+          width="25"
+          height="26"
+        />
+      </button>
+    </header>
+
+    <main class="progresBar">
+      <div
+        class="progresBarContainer"
+        id="progress-bar-container"
+        role="progressbar"
+      ></div>
+
+      <div class="progresBarControls">
+        <div class="controlItem">
+          <div id="input-value-container"></div>
+          <span class="controlItemText">Value</span>
+        </div>
+
+        <div class="controlItem">
+          <div id="animate-switch-container"></div>
+          <span class="controlItemText">Animate</span>
+        </div>
+
+        <div class="controlItem">
+          <div id="hide-switch-container"></div>
+          <span class="controlItemText">Hide</span>
+        </div>
+      </div>
+    </main>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>

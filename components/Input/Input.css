@@ -1,0 +1,8 @@
+.inputClassName {
+  border: 1px solid #000;
+  border-radius: 15px;
+  width: 40px;
+  height: 25px;
+  cursor: pointer;
+  text-align: center;
+}

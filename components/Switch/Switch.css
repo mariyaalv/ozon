@@ -1,0 +1,30 @@
+.toggleCheckbox {
+  position: relative;
+  width: 40px;
+  height: 25px;
+  background-color: #ccc;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.toggleCheckbox::before {
+  content: "";
+  position: absolute;
+  top: 2.5px;
+  left: 2.5px;
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+.toggleCheckbox:checked {
+  background-color: #005bfd;
+}
+
+.toggleCheckbox:checked::before {
+  transform: translateX(15px);
+}
+
