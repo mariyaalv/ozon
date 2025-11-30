@@ -33,24 +33,24 @@ export class ProgressBar extends HTMLElement {
       ...options,
     };
 
-    this.init();
+    this.#init();
   }
 
-  init() {
+  #init() {
     this.id = `progress-bar-${this.instanceId}`;
     this.classList.add("progressBar");
 
-    this.render();
+    this.#render();
 
-    this.updateProgress(this.options.value);
+    this.#updateProgress(this.options.value);
     this.setVisibility(!this.options.hide);
 
     if (this.options.animate) {
-      this.startRotation();
+      this.#startRotation();
     }
   }
 
-  render() {
+  #render() {
     const { radius, strokeWidth, gradientColors, backgroundColor } =
       this.options;
 
@@ -75,7 +75,7 @@ export class ProgressBar extends HTMLElement {
     this.progressCircle = this.querySelector(".progress-bar-progress");
   }
 
-  updateProgress(value) {
+  #updateProgress(value) {
     const clampedValue = Math.min(MAX_PROGRESS, Math.max(MIN_PROGRESS, value));
 
     const circleLength = FULL_CIRCLE * this.options.radius;
@@ -93,19 +93,19 @@ export class ProgressBar extends HTMLElement {
   setAnimate(animate) {
     this.options.animate = animate;
     if (animate) {
-      this.startRotation();
+      this.#startRotation();
     } else {
-      this.stopRotation();
+      this.#stopRotation();
     }
   }
 
-  startRotation() {
+  #startRotation() {
     this.classList.add("progress-rotating");
     this.classList.remove("progress-paused");
     this.svg.style.animationDuration = `${this.options.rotationSpeed}s`;
   }
 
-  stopRotation() {
+  #stopRotation() {
     this.classList.add("progress-paused");
   }
 
@@ -115,7 +115,7 @@ export class ProgressBar extends HTMLElement {
   }
 
   setValue(value) {
-    this.updateProgress(value);
+    this.#updateProgress(value);
   }
 }
 

@@ -5,8 +5,9 @@
 ## Что внутри
 
 - **ProgressBar** — кастомный элемент, рисуется через SVG
-- **ProgressFacade** — простая обертка для удобного API
 - **Input/Switch** — базовые компоненты для контролов
+- **Controllers** — контроллеры для управления фичами (Theme, Progress, Controls)
+- **App** — главный класс приложения, собирает все контроллеры
 
 ## Фичи
 
@@ -60,14 +61,20 @@ progressBar.setAnimate(true);
 ## Структура
 
 ```
-├── assets/               # тут шрифты и картинки
-├── helpers/              # для функций помогаторов
-├── components/
-│   ├── Input/            # инпут
-│   ├── Switch/           # переключатель
-│   ├── ProgressBar/      # сам прогресс-бар
-│   └── ProgressFacade/   # API обертка
-├── index.html
-├── script.js
-└── main.css
+src/
+├── assets/               # Шрифты и иконки
+├── helpers/              # Вспомогательные функции
+├── components/           # Переиспользуемые UI-компоненты
+│   ├── Input/            # Компонент инпута
+│   ├── Switch/           # Компонент переключателя
+│   └── ProgressBar/      # Компонент прогресс-бара
+├── controllers/          # Контроллеры фич
+│   ├── Theme.js          # Управление темой
+│   ├── Progress.js       # Управление прогресс-баром
+│   └── Controls.js       # Управление контролами
+└── app/
+    └── App.js            # Главный класс приложения
+index.html
+script.js                 # Точка входа
+main.css
 ```
