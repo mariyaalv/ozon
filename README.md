@@ -22,27 +22,16 @@
 
 Просто откройте страничку на github pages.
 
-## Использование
+## Использование через контроллер
 
 ```javascript
-import { ProgressFacade } from "./components/ProgressFacade/index.js";
+import { Progress } from "./src/controllers/Progress.js";
 
-  const progressBar = ProgressFacade.createProgressBar({
-    value: 75,
-    animate: false,
-    hide: false,
-    gradientColors: ["#0090FF", "#005BFF", "#001CFF"],
-    backgroundColor: "#e0e0e0",
-    strokeWidth: 10,
-    radius: 45,
-    rotationSpeed: 2,
-  });
+const progress = new Progress({
+  container: document.getElementById("progress-bar-container")
+});
 
-// Меняем значение
-progressBar.setValue(50);
-
-// Включаем/выключаем вращение
-progressBar.setAnimate(true);
+progress.init();
 ```
 
 ## Параметры
