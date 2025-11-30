@@ -8,6 +8,13 @@
   font-size: 13px;
 }
 
+.inputClassName::-webkit-inner-spin-button,
+.inputClassName::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .inputClassName::placeholder {
   font-size: 11px;
+  text-align: center;
 }
