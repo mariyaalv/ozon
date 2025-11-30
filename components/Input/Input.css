@@ -1,8 +1,13 @@
 .inputClassName {
   border: 1px solid #000;
-  border-radius: 15px;
-  width: 40px;
-  height: 25px;
+  border-radius: 16px;
+  width: 45px;
+  height: 28px;
   cursor: pointer;
   text-align: center;
+  font-size: 13px;
+}
+
+.inputClassName::placeholder {
+  font-size: 11px;
 }

@@ -3,20 +3,23 @@ const DEFAULT_ATTRIBUTES = {
   class: "inputClassName",
 };
 
-export class Input extends HTMLInputElement {
+export class Input {
   constructor(attributes, callbacks = {}) {
-    super();
-
-    this.attrs = { ...DEFAULT_ATTRIBUTES, ...attributes};
+    this.attrs = { ...DEFAULT_ATTRIBUTES, ...attributes };
     this.callbacks = callbacks;
 
+    this.render();
     this.init();
+  }
+
+  render() {
+    this.inputEl = document.createElement("input");
   }
 
   init() {
     Object.entries(this.attrs).forEach(([name, value]) => {
       if (value) {
-        this.setAttribute(name, value);
+        this.inputEl.setAttribute(name, value);
       }
     });
 
@@ -24,28 +27,30 @@ export class Input extends HTMLInputElement {
   }
 
   addClassName(className) {
-    this.classList.add(className);
+    this.inputEl.classList.add(className);
   }
 
   removeClassName(className) {
-    this.classList.remove(className);
+    this.inputEl.classList.remove(className);
   }
 
   toggleClassName(className) {
-    this.classList.toggle(className);
+    this.inputEl.classList.toggle(className);
   }
 
   setValue(value) {
-    this.value = value;
+    this.inputEl.value = value;
   }
 
   addInputEventListeners() {
-    this.addEventListener("input", (event) => {
+    this.inputEl.addEventListener("input", (event) => {
       if (this.callbacks.onInput) {
         this.callbacks.onInput(event);
       }
     });
   }
-}
 
-customElements.define("custom-input", Input, { extends: "input" });
+  getElement() {
+    return this.inputEl;
+  }
+}

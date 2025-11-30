@@ -19,7 +19,8 @@ export class Switch extends Input {
   init() {
     super.init();
 
-    if (this.checked) {
+    if (this.attrs.checked) {
+      this.inputEl.checked = true;
       this.addClassName("toggleChecked");
     }
 
@@ -27,10 +28,10 @@ export class Switch extends Input {
   }
 
   addSwitchEventListeners() {
-    this.addEventListener("change", (event) => {
+    this.inputEl.addEventListener("change", (event) => {
       const isChecked = event.target.checked;
 
-      this.setAttribute("checked", isChecked);
+      this.inputEl.checked = isChecked;
       this.toggleClassName("toggleChecked");
 
       if (this.callbacks.onChange) {
@@ -39,5 +40,3 @@ export class Switch extends Input {
     });
   }
 }
-
-customElements.define("custom-switch", Switch, { extends: "input" });

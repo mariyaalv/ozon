@@ -77,8 +77,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   );
 
-  inputValueContainer.appendChild(inputValueElement);
-  animateSwitchContainer.appendChild(animateSwitchElement);
-  hideSwitchContainer.appendChild(hideSwitchElement);
+  inputValueContainer.appendChild(inputValueElement.getElement());
+  animateSwitchContainer.appendChild(animateSwitchElement.getElement());
+  hideSwitchContainer.appendChild(hideSwitchElement.getElement());
   progressContainer.appendChild(progressBar.getElement());
 });
